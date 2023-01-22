@@ -1,0 +1,31 @@
+{
+  "name": "search-visualizer",
+  "author": "Batouchan Omer",
+  "license": "MIT",
+  "version": "1.0.0",
+  "description": "Interactive web-based visualization of Search Algorithms in AI",
+  "private": true,
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack serve",
+    "watch": "webpack --watch",
+    "build": "webpack",
+    "deploy": "gh-pages -d public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/batoomer/search-visualizer.git"
+  },
+  "bugs": {
+    "url": "https://github.com/batoomer/search-visualizer/issues"
+  },
+  "dependencies": {
+    "css-loader": "^6.7.3",
+    "gh-pages": "^5.0.0",
+    "html-webpack-plugin": "^5.5.0",
+    "mini-css-extract-plugin": "^2.7.2",
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.1",
+    "webpack-dev-server": "^4.11.1"
+  }
+}
