@@ -4,11 +4,13 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
-## [0.0.1] - 2023-01-?
+## [0.0.1] - 2023-01-24
 
 ### Added
+- Created Page class as an abstract class for creating reusable pages
+- Created HashLink class to handle links between pages
 - Created HashRouter class to handle client-side routing
-- Created ResourceHandler class to handle the resources(eventListeners, promises, intervals, timeouts) of the components
+- Created EventHandler, PromiseHandler, IntervalHandler and TimeoutHandler classes to handle the resources(eventListeners, promises, intervals, timeouts) of the components
 - Created BaseComponent class as an abstract class for creating reusable components
 - index.html as the template HTML file
 - index.js as the entry point for the application

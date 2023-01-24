@@ -1,13 +1,10 @@
 /**
- * Class used for managing resources.
- *  - Event Listeners
- *  - Timeouts
- *  - Intervals
- *  - Promises
+ * Class used for managing Event Listeners
  */
-export default class ResourceHandler {
+export class EventHandler {
     /**
-     * Initializes arrays to keep track of the resources.
+     * Initializes an array to keep track of the event listeners.
+     * 
      * @constructor
      */
     constructor(){
@@ -21,28 +18,7 @@ export default class ResourceHandler {
          * @type {Array}
          */
         this.eventListeners = [];
-
-        /**
-         * Array to store promises associated with the component
-         * 
-         * @type {Array}
-         */
-        this.promises = [];
-
-        /**
-         * Array to store intervals associated with the component
-         * 
-         * @type {Array}
-         */
-        this.intervals = [];
-
-        /**
-         * Array to store timeouts associated with the component
-         * 
-         * @type {Array}
-         */
-        this.timeouts = [];
-    };
+    }
 
     /**
      * Add an event listener to an element
@@ -54,7 +30,11 @@ export default class ResourceHandler {
      */
     addEventListener(element, event, callback){
         element.addEventListener(event, callback);
-        this.#registerResource({element: element, event: event, callback: callback}, 'event');
+        this.eventListeners.push({
+            element: element,
+            event: event,
+            callback: callback
+        });
     };
 
     /**
@@ -67,8 +47,43 @@ export default class ResourceHandler {
      */
     removeEventListener(element, event, callback){
         element.removeEventListener(event, callback);
-        this.#freeResource({element: element, event: event, callback: callback}, 'event');
+        this.eventListeners = this.eventListeners.filter(
+            listener => listener.element !== element && listener.event !== event && listener.callback !== callback
+        );
     };
+
+    /**
+     * Remove all registerd event listeners
+     * 
+     * @property {Function} removeAllListeners
+     */
+    removeAllListeners(){
+        // Remove all registerd event listeners
+        this.eventListeners.forEach(eventListener => {
+            eventListener.element.removeEventListener(eventListener.event, eventListener.callback)
+        });
+    };
+
+};
+
+/**
+ * Class used for managing Timeouts
+ */
+export class TimeoutHandler {
+    /**
+     * Initializes an array to keep track of timeouts.
+     * 
+     * @constructor
+     */
+    constructor(){
+            /**
+         * Array to store timeouts associated with the component
+         * 
+         * @type {Array}
+         */
+        this.timeouts = [];
+    };
+
 
     /**
      * Set a timeout
@@ -80,7 +95,7 @@ export default class ResourceHandler {
      */
     addTimeout(callback, timeout){
         const id = setTimeout(callback, timeout);
-        this.#registerResource(id, 'timeout');
+        this.timeouts.push(id);
         return id;
     };
 
@@ -92,7 +107,39 @@ export default class ResourceHandler {
      */
     removeTimeout(timeoutID){
         this.clearTimeout(timeoutID);
-        this.#freeResource(timeoutID, 'timeout');
+        this.timeouts = this.timeouts.filter(id => id !== timeoutID);
+    };
+
+    /**
+     * Remove all registerd timeouts
+     * 
+     * @property {Function} removeAllTimeouts
+     */
+    removeAllTimeouts(){
+        // Clear all registered timeouts
+        this.timeouts.forEach(timeout => {
+            clearTimeout(timeout);
+        });
+    };
+};
+
+/**
+ * Class used for managing Intervals
+ */
+export class IntervalHandler {
+
+    /**
+     * Initializes an array to keep track of Intervals.
+     * 
+     * @constructor
+     */
+    constructor(){
+        /**
+         * Array to store intervals associated with the component
+         * 
+         * @type {Array}
+         */
+        this.intervals = [];
     };
 
     /**
@@ -105,7 +152,7 @@ export default class ResourceHandler {
      */
     addInterval(callback, interval){
         const id = setInterval(callback, interval);
-        this.#registerResource(id, 'interval');
+        this.intervals.push(id);
         return id;
     };
 
@@ -117,8 +164,40 @@ export default class ResourceHandler {
      */
     removeInterval(intervalID){
         clearInterval(intervalID);
-        this.#freeResource(intervalID, 'interval');
+        this.intervals = this.intervals.filter(id => id !== intervalID);
     };
+
+    /**
+     * Remove all registerd Intervals
+     * 
+     * @property {Function} removeAllIntervals
+     */
+    removeAllIntervals(){
+        // Clear all registerd intervals
+        this.intervals.forEach(interval => {
+            clearInterval(interval);
+        });
+    };
+};  
+
+/**
+ * Class used for managing Promises
+ */
+export class PromiseHandler {
+    /**
+     * Initializes an array to keep track of the Promises.
+     * 
+     * @constructor
+     */
+    constructor(){
+        /**
+         * Array to store promises associated with the component
+         * 
+         * @type {Array}
+         */
+        this.promises = [];
+    };
+
 
     /**
      * Create a promise
@@ -129,7 +208,7 @@ export default class ResourceHandler {
      */
     addPromise(callback){
         const promise = new Promise(callback);
-        this.#registerResource(promise, 'promise');
+        this.promises.push(promise);
         return promise;
     };
 
@@ -141,103 +220,18 @@ export default class ResourceHandler {
      */
     removePromise(promise){
         promise.reject();
-        this.#freeResource(promise, 'promise');
+        this.promises = this.promises.filter(p => p !== promise);
     };
 
     /**
-     * Free up resources associated with the component
-     * - Remove all registerd event listeners
-     * - Reject all reigsterd promises
-     * - Reject all registerd intervals
-     * - Reject all registerd timeouts
+     * Remove all registerd promises
      * 
-     * @property {Function} freeResources
+     * @property {Function} removeAllPromises
      */
-    freeAllResources(){
-        // Remove all registerd event listeners
-        this.eventListeners.forEach(eventListener => {
-            eventListener.element.removeEventListener(
-                eventListener.event,
-                eventListener.callback
-            )
-        });
-
+    removeAllPromises(){
         // Reject all registerd promises
         this.promises.forEach(promise => {
             promise.reject();
         });
-
-        // Clear all registerd intervals
-        this.intervals.forEach(interval => {
-            clearInterval(interval);
-        });
-
-        // Clear all registered timeouts
-        this.timeouts.forEach(timeout => {
-            clearTimeout(timeout);
-        });
     };
-
-    /**
-     * Register a resource 
-     * 
-     * @property {Function} registerResource
-     * @private
-     * @param {Object} resource - The resource to be registered
-     * @param {string} resourceType - The type of resource to register (event, promise, interval, timeout)
-     */
-    #registerResource(resource, resourceType){
-        // Add reosurce to the corresponding array
-        switch (resourceType){
-            case "event":  // Event Listeners
-                this.eventListeners.push({
-                    element: resource.element,
-                    event: resource.event,
-                    callback: resource.callback
-                });
-                break;
-            case "promise":  // Promises
-                this.promises.push(resource);
-                break;
-            case "interval":  // Intervals
-                this.intervals.push(resource);
-                break; 
-            case "timeout":  // Timeouts
-                this.timeouts.push(resource);
-                break;
-            default:
-                throw new Error(`Invalid resource type: ${resourceType}`);
-        };
-    };
-
-    /**
-     * Free a resource 
-     * 
-     * @property {Function} freeResource
-     * @private
-     * @param {Object} resource - The resource to be freed
-     * @param {string} resourceType - The type of resource to free (event, promise, interval, timeout)
-     */
-    #freeResource(resource, resourceType){
-        // Remove the resource from the corresponding array
-        switch (resourceType){
-            case "event":  // Event Listeners
-                this.eventListeners = this.eventListeners.filter(
-                    listener => listener.element !== resource.element && listener.event !== resource.event && listener.callback !== resource.callback
-                );
-                break;
-            case "promise":  // Promises
-                this.promises = this.promises.filter(promise => promise !== resource);
-                break;
-            case "interval":  // Intervals
-                this.intervals = this.intervals.filter(id => id !== resource);
-                break; 
-            case "timeout":  // Timeouts
-                this.timeouts = this.timeouts.filter(id => id !== resource);
-                break;
-            default:
-                throw new Error(`Invalid resource type: ${resourceType}`);  
-        };
-    };
-
 };

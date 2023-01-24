@@ -1,5 +1,3 @@
-import ResourceHandler from "./ResourceHandler";
-
 /**
  * Base abstract class for a component
  */
@@ -9,21 +7,13 @@ export default class BaseComponent {
      * @constructor
      * @param {string} tag - The HTML tag of the component element
      * @param {string | string[]} [className] - The class name(s) of the component element
-     * @param {*} [id] - The id of the component element
+     * @param {string} [id] - The id of the component element
      */
     constructor(tag, className="", id=""){
         // Check if the class is being instantiated directly
-        if (this.constructor === Animal) {
+        if (this.constructor === BaseComponent) {
             throw new Error("Can't instantiate abstract class!");
         };
-
-        /**
-         * ResourceHandler to handle the resources used by the component
-         * 
-         * @type {ResourceHandler}
-         * See {@link ResourceHandler}
-         */
-        this.resourceHandler = new ResourceHandler();
 
         /**
          * The component element
@@ -52,26 +42,6 @@ export default class BaseComponent {
     create(){
         throw new Error("Abstract method!");
     };
-
-    /**
-     * Abstract method to destroy the component
-     * 
-     * @property {function} destroy
-     * @abstract
-    */
-    destroy(){
-        this.clearResources();
-        throw new Error("Abstract method!");
-    };
-
-    /**
-     * Clear all the resources associated with the component
-     * 
-     * @property {function} clearResources
-     */
-    clearResources(){
-        this.resourceHandler.freeAllResources();
-    }
 
     /**
      * Add an ID to the component element
