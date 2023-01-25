@@ -62,6 +62,7 @@ export class EventHandler {
         this.eventListeners.forEach(eventListener => {
             eventListener.element.removeEventListener(eventListener.event, eventListener.callback)
         });
+        this.eventListeners = [];
     };
 
 };
@@ -120,6 +121,7 @@ export class TimeoutHandler {
         this.timeouts.forEach(timeout => {
             clearTimeout(timeout);
         });
+        this.timeouts = [];
     };
 };
 
@@ -177,6 +179,8 @@ export class IntervalHandler {
         this.intervals.forEach(interval => {
             clearInterval(interval);
         });
+
+        this.intervals = [];
     };
 };  
 
@@ -233,5 +237,7 @@ export class PromiseHandler {
         this.promises.forEach(promise => {
             promise.reject();
         });
+
+        this.promises = [];
     };
 };
