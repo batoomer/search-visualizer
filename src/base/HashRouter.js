@@ -157,7 +157,7 @@ export class HashLink extends BaseComponent {
         this.path = path;
         
         // Set the text content and href of the anchor element
-        this.componentElement.textContent = text;
+        this.componentElement.innerHTML = text;
         this.componentElement.href = `#${this.path}`
     };
 
