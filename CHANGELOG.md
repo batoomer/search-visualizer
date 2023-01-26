@@ -4,6 +4,23 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## [0.0.2] - 2023-01-26
+
+### Added
+- nav.config.js: This file exports arrays of navigation items. Each item in an array represents a navigation item with a name and a path.
+- Navigation bar Component and Style
+- Header Component and Style
+- Footer Component amd Style
+- index.js which contains general styles and css variables
+- route.config.js: This file contains an array of route configurations. Each route configuration contains the path of the route and the page component associated with that route.
+- App.js for binding every part of the application
+
+### Changed
+- In the HashLink class replaced the anchor textContent with innerHTML
+
+### Fixed
+- Resources handlers wouldn't clear the array containing the resources after the removeAllResource method
+
 ## [0.0.1] - 2023-01-24
 
 ### Added

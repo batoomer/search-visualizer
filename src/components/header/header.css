@@ -1,0 +1,38 @@
+/* =========== HEADER STYLE ============= */
+
+body > header {
+    background-color: var(--color-background);
+    height: 4.5rem;
+    box-shadow: 0 0.05rem 0.5rem 0.1rem var(--color-shadow);
+}
+
+.header__container{
+    display: flex;
+    align-items: center;
+}
+
+.header__title {
+    margin: 0 auto;
+}
+
+/* =========== HEADER BURGER MENU ============ */
+
+.header__burger-menu{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap:0.35rem;
+    padding: 0.2rem;
+}
+
+.header__burger-bar {
+    background-color: var(--color-primary);
+    height: 0.2rem;
+    width: 2rem;
+    transition: background-color var(--transition-linear);
+}
+
+.header__burger-menu:hover .header__burger-bar{
+    background-color: var(--color-secondary);
+}

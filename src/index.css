@@ -1,0 +1,87 @@
+/* STYLE RESET */
+*, *::after, *::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border: 0;
+}
+
+/* VARIABLES */
+
+:root {
+    font-size: 18px;
+
+    /* Colors */
+    --color-background: #050608;
+    --color-surface1: #020611;
+    --color-on-surface: rgba(255, 255, 255, 0.75);
+    --color-on-surface-secondary: rgba(255, 255, 255, 0.47);
+    --color-primary: #3d6a8a;
+    --color-secondary: #2d4049;
+    --color-shadow: black;
+
+    /* Size */
+    --container-width: 80%;
+    --transition: 500ms ease;
+
+    /* Transition and Animation */
+    --transition-linear: 0.4s linear;
+}
+
+@media screen and (max-width: 1024px) {
+    :root {
+        font-size: 16px;
+        --container-width: 90%;
+    }
+}
+
+@media screen and (max-width: 680px) {
+    :root {
+        font-size: 12px;
+    }
+}
+
+
+/* GENERAL STYLE */
+
+body{
+    /* Background */
+    background-color: var(--color-background);
+    background: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25))
+    ,url(./images/background.jpg) no-repeat center / cover;
+
+    /* Positioning */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+
+    /* Typography */
+    color: var(--color-on-surface);
+    font-family: 'Roboto', 'Times New Roman', Times, serif;
+    line-height: 1.7;
+}
+
+body > header, 
+body > footer, 
+body > main {
+    display: grid;
+    place-items: center;
+}
+
+img {
+    display: block;
+    width: 100%;
+    object-fit: cover;
+}
+
+button {
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.container {
+    width: var(--container-width);
+    max-width: 1920px;
+}

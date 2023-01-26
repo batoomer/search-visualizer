@@ -1,0 +1,24 @@
+/* =========== FOOTER STYLE ============= */
+
+body > footer {
+    background-color: var(--color-background);
+    box-shadow: 0 0 0.5rem 0.1rem var(--color-shadow);
+    height: fit-content;
+}
+
+body > footer small {
+    padding: 1rem 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+body > footer small img {
+    display: inline-block;
+    width: calc(1.5 * 0.7rem); /* 1.5 times the font-size of the small element */
+    vertical-align: text-bottom;
+    -webkit-filter: brightness(75%);
+    filter: brightness(75%)
+}

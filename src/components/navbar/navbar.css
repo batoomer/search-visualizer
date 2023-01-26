@@ -1,0 +1,124 @@
+/* =========== NAVBAR STYLE ============= */
+
+body > nav {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 19rem;
+    height: 100vh;
+    background-color: var(--color-background);
+    box-shadow: 0.05rem 0 0.5rem 0.1rem var(--color-shadow);
+    padding: 1rem 1rem;
+    opacity: 0;
+    transform: translateX(-100%);
+    transition: all var(--transition-linear);
+}
+
+body > nav ul {
+    display: flex;
+    flex-direction: column;
+    list-style: none; 
+}
+
+body > nav ul li a {
+    color: var(--color-on-surface-secondary);
+    text-decoration: none;
+    width: 100%;
+    padding: 0.5rem 1rem 0.5rem 0;
+}
+
+/* =========== MAIN LIST STYLE ============= */
+.navbar__main-list{
+    padding: 0 2rem;
+    gap: 1rem;
+}
+
+.navbar__link-home{
+    color: inherit
+}
+
+.navbar__item-link{
+    display: flex;
+    transition: all var(--transition-linear);
+}
+
+.navbar__item-list > h2 {
+    margin-bottom: 1rem;
+}
+
+.navbar__item-list + .navbar__item-separator {
+    margin-top: 1rem;
+}
+
+.navbar__heading{
+    padding: 0 0.5rem;
+    font-size: 1.25rem;
+    width: 100%;
+    display: flex;
+}
+
+.navbar__sublist {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.navbar__sublist .navbar__link {
+    margin-left: 2rem;
+}
+
+.navbar__item-link:hover {
+    border-left: 0.25rem solid var(--color-primary);
+    background-color: var(--color-secondary);
+}
+
+/* =========== CLOSE BUTTON STYLE ============= */
+
+.navbar__close-btn{
+    width: 1.75rem;
+    height: 1.75rem;
+    margin-left: auto;
+    display: grid;
+    place-items: center;
+    position: relative;
+    padding: 0.5rem;
+    transition: all 0.3s ease-in;
+}
+
+.navbar__close-btn-bar{
+    position: absolute;
+    background-color: var(--color-primary);
+    display: block;
+    width: 100%;
+    height: 0.15rem;    
+}
+.navbar__close-btn :first-child{
+    transform: rotate(45deg);
+}
+
+.navbar__close-btn :last-child{
+   transform: rotate(-45deg);
+}
+
+.navbar__close-btn:hover{
+    transform: rotate(180deg);
+}
+
+/* =========== SEPARATOR STYLE ============= */
+
+.navbar__item-separator > span{
+    display: block;
+    background-color: var(--color-primary);
+    background: linear-gradient(to right, var(--color-secondary), var(--color-primary), var(--color-secondary));
+    height: 0.1rem;
+    width: 100%;
+}
+
+/* =========== UTILITY CLASSES ============= */
+ 
+body > nav.active{
+    opacity: 1;
+    transform: translateX(0%);
+    z-index: 99;
+ }
