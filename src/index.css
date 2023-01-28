@@ -13,12 +13,23 @@
 
     /* Colors */
     --color-background: #050608;
-    --color-surface1: #020611;
+    --color-surface1: hsl(224, 76%, 4%);
+    --color-surface1-transparent-50: hsla(224, 79%, 4%, 0.5);
+    --color-surface2: #090D28;
+    --color-primary-surface: #090c7d;
+    --color-secondary-surface: #2c4dde;
+   
     --color-on-surface: rgba(255, 255, 255, 0.75);
-    --color-on-surface-secondary: rgba(255, 255, 255, 0.47);
-    --color-primary: #3d6a8a;
+    --color-on-surface-secondary: rgba(255, 255, 255, 0.65);
+    --color-on-surface-primary: hsl(205, 94%, 77%);
+    --color-on-surface-error: hsl(0, 97%, 65%);
+   
+    --color-primary: hsl(205, 39%, 39%);
     --color-secondary: #2d4049;
+
+    
     --color-shadow: black;
+   
 
     /* Size */
     --container-width: 80%;
@@ -48,7 +59,7 @@ body{
     /* Background */
     background-color: var(--color-background);
     background: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25))
-    ,url(./images/background.jpg) no-repeat center / cover;
+    ,url(./images/background.jpg) no-repeat center / cover fixed;
 
     /* Positioning */
     min-height: 100vh;
@@ -59,7 +70,7 @@ body{
 
     /* Typography */
     color: var(--color-on-surface);
-    font-family: 'Roboto', 'Times New Roman', Times, serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     line-height: 1.7;
 }
 
@@ -68,6 +79,14 @@ body > footer,
 body > main {
     display: grid;
     place-items: center;
+}
+
+body > header {
+    height: 4rem;
+}
+
+body > main {
+    min-height: calc(100vh - 4rem);
 }
 
 img {
@@ -79,6 +98,19 @@ img {
 button {
     background-color: transparent;
     cursor: pointer;
+}
+
+.btn {
+    background-color: var(--color-primary-surface);
+    color: var(--color-on-surface);
+    font-size: 1.5rem;
+    padding: 0.75rem 1rem;
+    border-radius: 5rem;
+    transition: background-color var(--transition);
+}
+
+.btn:hover {
+    background-color: var(--color-secondary-surface);
 }
 
 .container {
