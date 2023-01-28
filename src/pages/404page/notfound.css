@@ -1,0 +1,42 @@
+/* =========== NOT FOUND PAGE STYLE ============= */
+
+.notfound-page > .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap:0.5rem;
+    color: var(--color-on-surface-secondary);
+    background-color: var(--color-background);
+    border-radius: 4rem;
+    padding: 2rem 1rem;
+    text-align: center;
+}
+
+.notfound-page > .container > h1{
+    font-size: 3rem;
+    color: var(--color-on-surface);
+}
+
+.notfound-page > .container > p{
+    font-size: 1.25rem;
+}
+
+.notfound-page > .container > small{
+    font-size: 1rem;
+}
+
+.notfound-page > .container > small > em{
+    color: var(--color-on-surface-error);
+}
+
+.notfound-page > .container > p+p {
+        margin-top: 2.5rem;
+}
+
+.notfound-page > .container > button {
+    margin: 1rem 0 2.5rem 0;
+}
+
+#redirect-countdown {
+    color: var(--color-on-surface-primary);
+}

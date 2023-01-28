@@ -7,6 +7,7 @@ All notable changes to this project will be documented in this file.
 ## [0.0.2] - 2023-01-26
 
 ### Added
+- 404 Page and Style
 - nav.config.js: This file exports arrays of navigation items. Each item in an array represents a navigation item with a name and a path.
 - Navigation bar Component and Style
 - Header Component and Style
@@ -16,6 +17,7 @@ All notable changes to this project will be documented in this file.
 - App.js for binding every part of the application
 
 ### Changed
+- HashRouter now routes to 404 page if a route doesn't exist
 - In the HashLink class replaced the anchor textContent with innerHTML
 
 ### Fixed

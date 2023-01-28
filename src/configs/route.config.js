@@ -5,6 +5,7 @@
  * @module configs/route.config
 */
 
+import NotFoundPage from "../pages/404page/NotFoundPage";
 import HomePage from "../pages/home/HomePage";
 
 
@@ -18,6 +19,11 @@ const routeConfig = [
         path: '/',
         page: HomePage
     },
+
+    {
+        path: '*',
+        page: NotFoundPage
+    }
 ];
 
 export default routeConfig;

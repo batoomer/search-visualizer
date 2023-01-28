@@ -114,7 +114,11 @@ export default class HashRouter{
      * @returns {Page} The new page
      */
     #createNewPage(path){
-        return new this.routes[path]();
+        try {
+            return new this.routes[path]();
+        } catch (error) {
+            return new this.routes['*'](path);
+        }
     };
 };
 
