@@ -1,0 +1,50 @@
+.page-article {
+    display: grid;
+    place-items: center;
+}
+
+.page-article > .container {
+    padding: 2.5rem 0;
+}
+
+.page-article p+p {
+    margin-top: 1rem;
+}
+
+.page-article h2 {
+    font-size: 2.25rem;
+    margin-bottom: 1.5rem;
+}
+
+.page-article h3{
+    font-size: 1.75rem;
+    margin-bottom: 1.25rem;
+}
+
+.page-article p {
+    font-size: 1.2rem;
+    text-align: justify;
+    color: var(--color-on-surface-secondary);
+}
+
+.page-article section {
+    margin-top: 3rem;
+}
+
+.page-article ul {
+    margin: 1rem 0;
+    margin-left: 10%;
+    font-size: 1.2rem;
+}
+
+.page-article li {
+    margin: 0.5rem 0;
+}
+
+.page-article a {
+    color: var(--color-on-surface-primary);
+}
+
+.page-article a:visited {
+    color: var(--color-primary);
+}
