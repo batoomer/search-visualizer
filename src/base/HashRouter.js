@@ -40,8 +40,11 @@ export default class HashRouter{
      * @param {string} url - The URL of the route. It should start with /
      * @param {class} pageComponent  - A class that extends the {Page} class
      */
-    registerRoute(url, pageComponent){
-        this.routes[url] = pageComponent;
+    registerRoute(url, pageComponent, pageData){
+        this.routes[url] = {
+            page: pageComponent,
+            data: pageData
+        };
     };
 
     /**
@@ -115,9 +118,9 @@ export default class HashRouter{
      */
     #createNewPage(path){
         try {
-            return new this.routes[path]();
+            return new this.routes[path]['page'](...this.routes[path]['data']);
         } catch (error) {
-            return new this.routes['*'](path);
+            return new this.routes['*']['page'](path);
         }
     };
 };

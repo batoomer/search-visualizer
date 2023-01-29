@@ -7,22 +7,33 @@
 
 import NotFoundPage from "../pages/404page/NotFoundPage";
 import HomePage from "../pages/home/HomePage";
+import homeArticleData from '../pages/home/home.json';
+import MazeVisualizerPage from "../pages/maze/MazePage";
 
 
 /**
  * @type {Array}
  * @property {Object} path - The path of the route
  * @property {Page} page - The Page associated with the path
+ * @property {Object} data: The data associated with the page
  */
 const routeConfig = [
     {
         path: '/',
-        page: HomePage
+        page: HomePage,
+        data: [homeArticleData]
+    },
+
+    {
+        path: '/breadth-first-search',
+        page: MazeVisualizerPage,
+        data: [homeArticleData]
     },
 
     {
         path: '*',
-        page: NotFoundPage
+        page: NotFoundPage,
+        data: []
     }
 ];
 

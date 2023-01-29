@@ -21,7 +21,7 @@ export default class App{
         this.router = new HashRouter();
         // Register all routes from the route config file
         routeConfig.forEach(route => {
-            this.router.registerRoute(route.path, route.page);
+            this.router.registerRoute(route.path, route.page, route.data);
         });
 
         /**

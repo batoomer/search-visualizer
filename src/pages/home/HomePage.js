@@ -1,14 +1,14 @@
 import Page from "../../base/Page";
 import Article from "../../components/article/Article";
-import homeArticleData from './home.json';
 import "./home.css";
 
 export default class HomePage extends Page{
     /**
      * @constructor
      */
-    constructor(){
+    constructor(articleData){
         super('homepage');
+        this.articleData = articleData;
     };
 
     /**
@@ -20,7 +20,7 @@ export default class HomePage extends Page{
     create(){
         this.componentElement.append(
             this.#createHeroSection(),
-            new Article(homeArticleData).create(),
+            new Article(this.articleData).create(),
         );
         return this.componentElement;
     };
