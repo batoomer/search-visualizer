@@ -1,0 +1,168 @@
+{
+    "title": "Search Techniques",
+    "content": [
+        {
+            "type": "paragraph",
+            "text": "Search techniques in artificial intelligence (AI) play a crucial role in finding solutions to problems and making decisions. They involve searching through a set of potential solutions to find the one that best meets the given criteria. There are two main categories of search techniques: informed and uninformed search."
+        },
+        
+        {
+            "type": "paragraph",
+            "text": "Uninformed search techniques, also known as blind search, do not use any information about the problem to guide the search. These algorithms search through the entire state space without any prior knowledge of the goal. These algorithms can be useful in cases where the search space is small and the goal is easily reachable."
+        },
+        
+        {
+            "type": "paragraph",
+            "text": "Informed search techniques, also known as heuristic search, make use of information about the problem to guide the search. These algorithms use a heuristic function to estimate the cost of reaching the goal from a given state."
+        },
+        
+        {
+            "type": "paragraph",
+            "text": "Both informed and uninformed search techniques have their own strengths and weaknesses, and the choice of which technique to use depends on the specific problem and the available resources. Informed search techniques are generally more efficient, but they require more information about the problem, while uninformed search techniques are less efficient, but they can be used when information about the problem is limited."
+        },
+        
+        {
+            "type": "paragraph",
+            "text": "In addition to these two main categories, there are also other search techniques which are used in specific scenarios where one of the above techniques don't work well."
+        },
+        
+        {
+            "type": "section",
+            "title": "Uninformed search",
+            "content": [
+                {
+                    "type": "paragraph",
+                    "text": "Uninformed search, also known as blind search, is a category of search techniques in artificial intelligence (AI) that do not use any information about the problem to guide the search. These algorithms simply explore the state space without any knowledge of the goal state or how to reach it. The goal of uninformed search is to find any solution that exists, even if it is not the best one."
+                },
+                {
+                    "type": "paragraph",
+                    "text": "One of the main advantages of uninformed search techniques is their generality. They can be applied to a wide range of problems without requiring any specific knowledge about the problem or the solution. They can be useful in situations, where information about the problem is limited or difficult to obtain."
+                },
+                {
+                    "type": "paragraph",
+                    "text": "Despite their relative inefficiency, uninformed search techniques can still be a useful tool for solving problems in AI. They are used in a wide range of fields, including robotics, natural language processing, and computer vision."
+                },
+                {
+                    "type": "paragraph",
+                    "text": "There are several uninformed search algorithms that are commonly used in artificial intelligence, including:"
+                },
+                {
+                    "type": "unordered-list",
+                    "items": [
+                        {
+                            "text": "Breadth-First Search (BFS)"
+                        },
+                        {
+                            "text": "Depth-First Search (DFS)"
+                        },
+                        {
+                            "text": "Depth-Limited Search (DLS)"
+                        },
+                        {
+                            "text": "Iterative Deepening Search (IDS)"
+                        }
+                    ]
+                },
+                {
+                    "type": "paragraph",
+                    "text": "Each of these algorithms have their own strengths and weaknesses, and the choice of which one to use depends on the specific problem and the available resources."
+                }
+            ]
+        },
+
+        {
+            "type": "section",
+            "title": "Informed Search",
+            "content": [
+                {
+                    "type": "paragraph",
+                    "text": "Informed search, also known as heuristic search, is a category of search techniques in artificial intelligence (AI) that use information about the problem to guide the search. These algorithms use a heuristic function to estimate the cost of reaching the goal state from a given state. The heuristic function guides the search by providing an estimate of how close a given state is to the goal state."
+                },
+                {
+                    "type": "paragraph",
+                    "text": "Informed search techniques are generally more efficient than uninformed search techniques because they use additional information about the problem to guide the search. They can focus on the most promising states and avoid those that are unlikely to lead to the goal."
+                },
+                {
+                    "type": "paragraph",
+                    "text": "Informed search techniques are used in a wide range of fields, including robotics, natural language processing, and computer vision. They are a fundamental part of solving problems in AI and are widely used in practice."
+                },
+                {
+                    "type": "paragraph",
+                    "text": "There are several informed search techniques that are commonly used in artificial intelligence, including: "
+                },
+                {
+                    "type": "unordered-list",
+                    "items": [
+                        {
+                            "text": "Dijkstra's algorithm"
+                        },
+                        {
+                            "text": "A* Search"
+                        },
+                        {
+                            "text": "Greedy Best-first search"
+                        },
+                        {
+                            "text": "Hill Climbing"
+                        },
+                        {
+                            "text": "Beam Search"
+                        },
+                        {
+                            "text": "Simulated Annealing"
+                        },
+                        {
+                            "text": "Genetic Algorithms"
+                        }   
+                    ]
+                },
+                {
+                    "type": "paragraph",
+                    "text": "Each of these algorithms have their own strengths and weaknesses, and the choice of which one to use depends on the specific problem and the available resources."
+                }
+            ]
+        },
+
+        {
+            "type": "section",
+            "title": "Benchmark Problems",
+            "content": [
+                {
+                    "type": "paragraph",
+                    "text": "Benchmark problems are a set of standard problems that are commonly used to evaluate and compare the performance of different search algorithms in artificial intelligence (AI). These problems have well-defined and understood characteristics, and the solutions to these problems are often known, making it possible to compare the performance of different algorithms."
+                },
+                {
+                    "type": "paragraph",
+                    "text": "An example of a benchmark problem in AI is the maze-solving problem. This problem involves finding a path from a starting point to a goal point in a maze, while avoiding obstacles. The maze can be represented as a graph, with each cell in the maze being a node and the edges representing the possible paths between the cells. The maze-solving problem can be used to evaluate the performance of various search algorithms, in terms of the number of nodes expanded and the length of the path found."
+                },
+                {
+                    "type": "paragraph",
+                    "text": "The choice of benchmark problem depends on the specific research question and the available resources. It is also important to consider the computational complexity of the algorithm when choosing a benchmark problem, as some problems may be too difficult or time-consuming to solve using certain algorithms."
+                },
+                {
+                    "type": "paragraph",
+                    "text": "Overall, benchmark problems play an important role in AI research by providing a common ground for comparing the performance of different algorithms and helping to identify areas for improvement."
+                }
+            ]
+        },
+        {
+            "type": "section",
+            "title": "References",
+            "content": [
+                {
+                    "type": "paragraph",
+                    "text": "Russel, S.J., and Norvig, P. (2010). Artificial Intelligence: A Modern Approach (3rd ed.). Prentice Hall."
+                },
+                {
+                    "type": "paragraph",
+                    "text": "Cormen, T.H., Leiserson, C.E., Rivest, R.L., and Stein, C. (2009). Introduction to Algorithms (3rd ed.). MIT Press."
+                },
+                {
+                    "type": "paragraph",
+                    "text": "Nilsson, N.J. (1980). Principles of Artificial Intelligence. Tioga Publishing Company."
+                }
+            ]
+        }
+
+    ]
+}
