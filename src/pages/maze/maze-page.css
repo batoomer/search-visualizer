@@ -1,0 +1,8 @@
+.maze-page__visualizer-section{
+    height: 90vh;
+    width: 100%;
+    display: grid;
+    place-items: center;
+    margin-bottom: 1rem;
+}
+

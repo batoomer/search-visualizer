@@ -7,8 +7,10 @@
 
 import NotFoundPage from "../pages/404page/NotFoundPage";
 import HomePage from "../pages/home/HomePage";
-import homeArticleData from '../pages/home/home.json';
 import MazeVisualizerPage from "../pages/maze/MazePage";
+import homeArticleData from '../pages/home/home.json';
+import articleBFS from "../pages/maze/data/articleBFS.json";
+
 
 
 /**
@@ -27,7 +29,7 @@ const routeConfig = [
     {
         path: '/breadth-first-search',
         page: MazeVisualizerPage,
-        data: [homeArticleData]
+        data: [articleBFS]
     },
 
     {

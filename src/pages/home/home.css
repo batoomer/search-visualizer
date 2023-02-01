@@ -16,12 +16,6 @@
     background: linear-gradient(to right, var(--color-surface1), var(--color-surface1-transparent-50));
 }
 
-
-.homepage > .page-article {
-    background-color: var(--color-surface1);
-    background: linear-gradient(var(--color-background), var(--color-surface1), var(--color-surface1-transparent-50));
-}
-
 @media screen and (max-width: 680px) {
     .home__hero-section{
         width: 100%;

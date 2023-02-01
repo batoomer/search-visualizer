@@ -4,9 +4,27 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## [0.0.3] - 2023-12-01
+
+### Added
+- Maze page to route.config.js
+- articleBFS that contains data for the BFS page
+- button icons
+- maze_path_finder: searchBFS
+- maze_generators: randomizedDFS, randomMaze, emptyMaze
+- maze-utils.py where common functions are implemented
+- MazeModel to handle the maze data structure
+- MazeVisualizer component and style
+- General styles for input range and select elements
+- Maze Page and style.
+
+### Changed
+- Moved article seciton style from home.css to index.css. It is now a general style
+
 ## [0.0.2] - 2023-01-26
 
 ### Added
+- Home Page 
 - Article Component and style. It takes a JSON file containing the data for the article and generates the HTML.
 - Additional colors
 - 404 Page and Style
@@ -19,6 +37,7 @@ All notable changes to this project will be documented in this file.
 - App.js for binding every part of the application
 
 ### Changed
+- HashRouter now supports pages with input parameters
 - Moved header height from header.css to index.css
 - HashRouter now routes to 404 page if a route doesn't exist
 - In the HashLink class replaced the anchor textContent with innerHTML

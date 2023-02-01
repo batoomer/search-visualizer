@@ -1,0 +1,87 @@
+{
+    "title": "Breadth-First Search",
+    "content": [
+        {
+            "type": "paragraph",
+            "text": "Breadth-First Search (BFS) is a popular search algorithm used in Artificial Intelligence (AI) and computer science. The algorithm is used to traverse or search a graph or a tree-like data structure in a breadth-wise manner. It starts from the root node and explores all the nodes at the current depth level before moving on to the next level."
+        },
+        
+        {
+            "type": "paragraph",
+            "text": "One of the main advantages of BFS is its simplicity. It is easy to implement and understand. Additionally, it is guaranteed to find the shortest path between two nodes in an unweighted graph. This means that it will always find the path with the minimum number of edges between the source and target nodes."
+        },
+
+        {
+            "type": "paragraph",
+            "text": "However, BFS also has its limitations. The main disadvantage of the algorithm is its memory requirement. Since it explores all possible paths, it can quickly consume a large amount of memory, especially for large graphs. This makes BFS unsuitable for searching large graphs or trees with millions of nodes."
+        },
+
+        {
+            "type": "section",
+            "title": "How DFS works",
+            "content": [
+                {
+                    "type": "paragraph",
+                    "text": "The algorithm works by maintaining a queue of nodes to be visited. The root node is first added to the queue, and then the algorithm repeatedly removes the first node from the queue, visits it, and adds its unvisited neighbors to the end of the queue. This process continues until the target node is found or all nodes have been visited."
+                },
+                {
+                    "type": "unordered-list",
+                    "items": [
+                        {
+                            "text": "Initialize a queue with the initial node"
+                        },
+                        {
+                            "text": "Initialize a visited set: A set is created to keep track of the nodes that have already been visited to avoid visiting them again."
+                        },
+                        {
+                            "text": "Repeat until the queue is empty"
+                        },
+                        {
+                            "text": "Dequeue the first node"
+                        },
+                        {
+                            "text": "Check if the node is the solution: If it is, terminate. If it is not, proceed to the next step."
+                        },
+                        {
+                            "text": "Check if the node is a member of the visited set. If it is go to the next iteration. If it is not, proceed to the next step"
+                        },
+                        {
+                            "text": "Add the node to the visited set"
+                        },
+                        {
+                            "text": "Get the unvisited neigbours of the node and add them to the queue. Go to the next iteration."
+                        }
+                    ]
+                }
+            ]
+        },
+        
+        {
+            "type": "section",
+            "title": "Time and Space Complexities",
+            "content": [
+                {
+                    "type": "paragraph",
+                    "text": "BFS has a time complexity of O(b^d), where b is the branching factor of the graph and d is the depth of the solution. In practice, BFS is used when the branching factor is small, as the time complexity can quickly become exponential for large branching factors."
+                },
+                {
+                    "type": "paragraph",
+                    "text": "One important aspect of BFS is its use of memory. BFS uses a queue to keep track of the nodes to be visited, and the size of the queue can grow large, making the algorithm unsuitable for large graphs with limited memory. In such cases, the algorithm can be modified to use Depth-First Search (DFS) or a memory-limited version of BFS."
+                }
+            ]
+        },
+        
+
+        {
+            "type": "section",
+            "title": "References",
+            "content": [
+                {
+                    "type": "paragraph",
+                    "text": "Russel, S.J., and Norvig, P. (2010). Artificial Intelligence: A Modern Approach (3rd ed.). Prentice Hall."
+                }
+            ]
+        }
+
+    ]
+}
