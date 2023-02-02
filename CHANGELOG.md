@@ -7,6 +7,9 @@ All notable changes to this project will be documented in this file.
 ## [0.0.3] - 2023-12-01
 
 ### Added
+- route for the DFS page
+- maze_path_finder: searchDFS
+- articleDFS that contains that for the DFS page
 - Maze page to route.config.js
 - articleBFS that contains data for the BFS page
 - button icons
@@ -19,7 +22,11 @@ All notable changes to this project will be documented in this file.
 - Maze Page and style.
 
 ### Changed
+- The general button style
 - Moved article seciton style from home.css to index.css. It is now a general style
+
+### Fixed
+- The button of the 404 Page. Its style now display correctly
 
 ## [0.0.2] - 2023-01-26
 

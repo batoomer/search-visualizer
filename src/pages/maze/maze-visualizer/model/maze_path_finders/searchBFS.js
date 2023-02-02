@@ -1,7 +1,7 @@
 import { getValidNeighbors } from "../maze-utils";
 
 /**
- * Perform a Depth First Search (DFS) on the grid to find a path from start to end
+ * Perform a Breadth First Search (BFS) on the grid to find a path from start to end
  * 
  * @param {Array} grid - The 2D grid representing the maze
  * @param {Object} start - The starting cell
@@ -9,44 +9,50 @@ import { getValidNeighbors } from "../maze-utils";
  * @returns {Array} The path from start to end, represented as an array of cells
  */
 export default function searchBFS(grid, start, end){
-    // Initialize a queue with the starting cell coords
+    // Initialize a queue
     const queue = [start];
-    // Initialize an animation array to keep track of the exploring of the maze
+    // Initialize an array to keep track of the animation
     const animation = [start];
-    // Initialize a set to keep the visited cells.
-    const visited = new Set();
+    // Initialize a set to keep track of visited neighbours to avoid loops
+    const visitedSet = new Set();
     // Initialize an object to keep track of the parents
     const parent = {}
 
-    // Loop until the queue has cells
+    // Repeat while the stack has cells
     while (queue.length){
-        // Dequeue a cell
+        // Get the first element of the queue
         let currentCell = queue.shift();
-        
-        // Check if the cell is the end cell
+
+        // Check if the current cell is the solution
         if ((currentCell.row === end.row) && (currentCell.col === end.col)){
-            animation.unshift(currentCell);
+            // Solution found stop the iterations
             break;
         };
 
-        // Get the valid neighbors
+        // Check if the current cell is a member of the visited set
+        if (visitedSet.has(`${currentCell.row},${currentCell.col}`)){
+            // Go to the next iteration
+            continue;
+        };
+
+        // We consider a cell visited for the purpose of the animation if it passes the previous control statements
+        animation.unshift(currentCell);
+
+        // Add the current cell to the visited set
+        visitedSet.add(`${currentCell.row},${currentCell.col}`);
+        // Get the neighbors of the cell
         let neighbors = getValidNeighbors(grid, currentCell);
-        // Iterate through the neighbors
         for (const neighbor of neighbors){
-            // Check if the neighbor has not been visited
-            if (!visited.has(`${neighbor.row},${neighbor.col}`)){
-                // Add the neighbor to the visited array
-                visited.add(`${neighbor.row},${neighbor.col}`);
-                // Enqueue the neighbor 
-                queue.push(neighbor);
-                animation.unshift(neighbor);
+            // Enqueue the neighbors
+            queue.push(neighbor);
+            // Add the current cell as the parent of the neighbor cell
+            if (!visitedSet.has(`${neighbor.row},${neighbor.col}`)){
                 // Add the current cell as the parent of the neighbor cell
                 parent[`${neighbor.row},${neighbor.col}`] = currentCell; 
             };
         };
-       
-      };
-    
+    };
+
     // Construct the path
     const path = [];
     let current = end;
@@ -54,9 +60,9 @@ export default function searchBFS(grid, start, end){
         if (!current) break;
         path.unshift(current);
         current = parent[`${current.row},${current.col}`];
-    }
+    };
     path.unshift(start);
-
-    // Return the animation array and the path
+    
+    
     return {animation: animation, path: path};
 };

@@ -113,14 +113,14 @@ button {
 }
 
 .btn {
-    background-color: var(--color-primary-surface);
+    background-color: var(--color-secondary);
     color: var(--color-on-surface);  
     transition: background-color var(--transition);
 }
 
 .btn.lg{
-    font-size: 1.5rem;
-    padding: 0.75rem 1rem;
+    font-size: 1.25rem;
+    padding: 0.5rem 0.75rem;
     border-radius: 5rem;
 }
 

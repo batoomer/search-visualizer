@@ -1,0 +1,87 @@
+{
+    "title": "Depth-First Search",
+    "content": [
+        {
+            "type": "paragraph",
+            "text": "Depth First Search (DFS) is a popular search algorithm used in Artificial Intelligence (AI) and computer science. The algorithm is used to traverse a graph or tree structure, starting from the root node and exploring as far as possible along each branch before backtracking. In other words, DFS explores the deepest possible node in the search tree before visiting its siblings."
+        },
+        
+        {
+            "type": "paragraph",
+            "text": "One of the key features of DFS is its ability to backtrack and change the path if it leads to a dead end. In other words, DFS can explore multiple paths in parallel, and switch to another path if the current path leads to a dead end. This is one of the reasons why DFS is widely used in maze-solving problems, where it is important to explore multiple paths in order to find a solution. Another important feature of DFS is its memory efficiency. Unlike Breadth First Search (BFS), which requires a queue data structure to store the nodes that need to be visited, DFS only requires a stack. This means that DFS uses less memory than BFS, and is suitable for problems where memory usage is a concern."
+        },
+
+        {
+            "type": "paragraph",
+            "text": "Despite its advantages, DFS also has some disadvantages. One of the biggest disadvantages is that it can be slow in certain situations, especially in problems where the search space is very large. This is because DFS explores the deepest node first, and may take a long time to reach the end node if the search space is large. Another disadvantage of DFS is that it can get stuck in infinite loops if the graph contains cycles. In such cases, DFS will keep visiting the same nodes over and over again, without finding the end node. To avoid this problem, DFS algorithms can use a visited set to keep track of the nodes that have already been visited."
+        },
+
+        {
+            "type": "section",
+            "title": "How DFS works",
+            "content": [
+                {
+                    "type": "paragraph",
+                    "text": "DFS algorithms use a stack data structure to keep track of the nodes that need to be visited. The algorithm starts by pushing the starting node onto the stack, and then repeatedly pops the top node from the stack and visits its neighbors. If a neighbor has already been visited, it is skipped. The algorithm continues until the end node is found or the stack is empty, which means that there is no solution."
+                },
+                {
+                    "type": "unordered-list",
+                    "items": [
+                        {
+                            "text": "Initialize a stack with the initial node"
+                        },
+                        {
+                            "text": "Initialize a visited set: A set is created to keep track of the nodes that have already been visited to avoid visiting them again."
+                        },
+                        {
+                            "text": "Repeat until the stack is empty"
+                        },
+                        {
+                            "text": "Pop the first node"
+                        },
+                        {
+                            "text": "Check if the node is the solution: If it is, terminate. If it is not, proceed to the next step."
+                        },
+                        {
+                            "text": "Check if the node is a member of the visited set. If it is go to the next iteration. If it is not, proceed to the next step"
+                        },
+                        {
+                            "text": "Add the node to the visited set"
+                        },
+                        {
+                            "text": "Get the unvisited neigbours of the node and push them to the stack. Go to the next iteration."
+                        }
+                    ]
+                }
+            ]
+        },
+        
+        {
+            "type": "section",
+            "title": "Time and Space Complexities",
+            "content": [
+                {
+                    "type": "paragraph",
+                    "text": "The time complexity of DFS depends on the number of nodes and edges in the search space. In the worst-case scenario, where the end node is located at the bottom of the search tree, DFS will visit every node in the tree, leading to a time complexity of O(b^d), where b is the average branching factor of the tree and d is the depth of the end node. This means that the time complexity of DFS can be very large in problems where the search space is very large."
+                },
+                {
+                    "type": "paragraph",
+                    "text": "The space complexity of DFS is O(b * d), which is much lower than the space complexity of Breadth First Search (BFS), which is O(b^d). This is because DFS only requires a stack to store the nodes that need to be visited, while BFS requires a queue. This means that DFS is more memory efficient than BFS, and is suitable for problems where memory usage is a concern. However, the space complexity of DFS can still be high in problems where the search space is very large, especially if the tree is very deep."
+                }
+            ]
+        },
+        
+
+        {
+            "type": "section",
+            "title": "References",
+            "content": [
+                {
+                    "type": "paragraph",
+                    "text": "Russel, S.J., and Norvig, P. (2010). Artificial Intelligence: A Modern Approach (3rd ed.). Prentice Hall."
+                }
+            ]
+        }
+
+    ]
+}

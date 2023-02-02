@@ -10,6 +10,7 @@ import HomePage from "../pages/home/HomePage";
 import MazeVisualizerPage from "../pages/maze/MazePage";
 import homeArticleData from '../pages/home/home.json';
 import articleBFS from "../pages/maze/data/articleBFS.json";
+import articleDFS from "../pages/maze/data/articleDFS.json";
 
 
 
@@ -30,6 +31,12 @@ const routeConfig = [
         path: '/breadth-first-search',
         page: MazeVisualizerPage,
         data: [articleBFS]
+    },
+
+    {
+        path: '/depth-first-search',
+        page: MazeVisualizerPage,
+        data: [articleDFS]
     },
 
     {

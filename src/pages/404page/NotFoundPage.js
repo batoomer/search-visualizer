@@ -55,7 +55,7 @@ export default class NotFoundPage extends Page{
             <h1>404 - Page Not Found</h1>
             <p>We couldn't find the page you were looking for. It's like the search tree is too complicated for our search algorithms.</p>
             <p> You will be redirect to home page in <span id="redirect-countdown">10</span> seconds.</p>
-            <button class="redirect-button btn">Return to Home</button>
+            <button class="redirect-button btn lg">Return to Home</button>
             <small>The URL you tried to access was: <em>${this.error}</em></small>
         </div>`;
 
@@ -90,7 +90,7 @@ export default class NotFoundPage extends Page{
      */
     #handleRedirectClick = () => {
         // Redirect to home page
-        window.location.href = "/";
+        window.location.href = "#/";
     };
 
     /**
@@ -104,7 +104,7 @@ export default class NotFoundPage extends Page{
         this.componentElement.querySelector("#redirect-countdown").innerHTML = this.redirectCountdown;
         if (this.redirectCountdown === 0) {
             this.intervalHandler.removeInterval(this.intervalId);
-            window.location.href = "/";
+            window.location.href = "#/";
         };
     };
 }
