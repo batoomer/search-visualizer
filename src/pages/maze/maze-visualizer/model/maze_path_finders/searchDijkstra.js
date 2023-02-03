@@ -37,7 +37,7 @@ export default function searchDijkstra(grid, startCell, endCell){
         let neighbors = getValidNeighbors(grid, currentCell);
         for (const neighbor of neighbors) {
             // Compute the distance of the neighbor
-            let newDistance = currentDistance + 1;
+            let newDistance = currentDistance + grid[neighbor.row][neighbor.col].weight;
             // Update the distance if the current distance is shorter than the previous distance
             if (
                 !distances[`${neighbor.row},${neighbor.col}`] ||

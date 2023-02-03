@@ -160,6 +160,11 @@ export default class MazeVisualizer extends BaseComponent{
             this.#handleSettingsAvailability();
              // Replace the button inner html
             btn.innerHTML = `<span>Start</span><img src="${playIcon}" alt="Start">`;
+            // If the animation has finished disable the button
+            const animations = this.mazeModel.getAnimations();
+            if (!animations.searchAnimation.length && !animations.pathAnimation.length){
+                btn.disabled = true;
+            };
             
         });
         return toggleBtnEl
@@ -181,8 +186,8 @@ export default class MazeVisualizer extends BaseComponent{
             this.running = false;
             this.timeoutHandler.removeAllTimeouts();
             this.mazeModel.resetMaze();
-            this.componentElement.querySelector('.maze-visualizer__select-algorithm').value = "";
             this.componentElement.querySelector('#maze-visualizer__maze-weights').checked = false;
+            this.componentElement.querySelector('.maze-visualizer__select-algorithm').value = "";
             this.#handleSettingsAvailability();
             this.componentElement.querySelector('.maze-grid').replaceWith(this.#createMazeGrid());
         });
@@ -264,6 +269,10 @@ export default class MazeVisualizer extends BaseComponent{
                 const animation = this.mazeModel.generateMaze(selectedOption);
                 // Animate the maze generation
                 await this.#animateMazeGeneration(animation);
+                if (this.componentElement.querySelector('#maze-visualizer__maze-weights').checked){
+                    this.mazeModel.addRandomWeights();
+                    this.#handleMazeWeights();
+                };
             };
         });
         
@@ -285,7 +294,7 @@ export default class MazeVisualizer extends BaseComponent{
         checkboxLabel.innerHTML = `Weights`;
         
         const weightCheckbox = document.createElement('input');
-        weightCheckbox.disabled = true;
+        //weightCheckbox.disabled = true;
         weightCheckbox.id = 'maze-visualizer__maze-weights';
         weightCheckbox.type = 'checkbox';
 
@@ -351,15 +360,14 @@ export default class MazeVisualizer extends BaseComponent{
             // Enable settings if animation is running
             this.componentElement.querySelector('.maze-visualizer__reset-btn').disabled = false;
             selectAlgorithm.disabled = false;
-            if (selectAlgorithm.value === ""){
-                this.componentElement.querySelector('.maze-visualizer__toggle-btn').disabled = true;
-                this.componentElement.querySelector('#maze-visualizer__maze-weights').disabled = true;
-            }else{
-                this.componentElement.querySelector('.maze-visualizer__toggle-btn').disabled = false;
-                this.componentElement.querySelector('#maze-visualizer__maze-weights').disabled = false;
-            }
-            this.componentElement.querySelector('#maze-visualizer__maze-weights').disabled = false;
+            this.componentElement.querySelector('#maze-visualizer__maze-weights').disabled = false; 
         };
+
+        if (selectAlgorithm.value === ""){
+            this.componentElement.querySelector('.maze-visualizer__toggle-btn').disabled = true;
+        }else{
+            this.componentElement.querySelector('.maze-visualizer__toggle-btn').disabled = false;
+        }
     };
 
 
