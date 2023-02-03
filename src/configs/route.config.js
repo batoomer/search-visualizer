@@ -12,6 +12,7 @@ import homeArticleData from '../pages/home/home.json';
 import articleBFS from "../pages/maze/data/articleBFS.json";
 import articleDFS from "../pages/maze/data/articleDFS.json";
 import articleDijkstra from "../pages/maze/data/articleDijkstra.json";
+import articleAstar from "../pages/maze/data/articleAstar.json";
 
 
 
@@ -44,6 +45,12 @@ const routeConfig = [
         path: '/dijkstra-algorithm',
         page: MazeVisualizerPage,
         data: [articleDijkstra]
+    },
+
+    {
+        path: '/a-start-search',
+        page: MazeVisualizerPage,
+        data: [articleAstar]
     },
 
     {

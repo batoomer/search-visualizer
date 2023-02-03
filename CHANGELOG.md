@@ -7,6 +7,9 @@ All notable changes to this project will be documented in this file.
 ## [0.0.3] - 2023-12-01
 
 ### Added
+- route for the A* Search page.
+- maze_path_finder: searchAStar
+- articleAstar that contains data for the A* Search page
 - General style for the checbox
 - MazeVisualizer: Checkbox to toggle weights, method to display weights
 - MazeModel: methods for adding and removing weights

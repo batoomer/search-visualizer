@@ -4,6 +4,7 @@ This is a simple project that aims to visualize different search algorithms used
 - Breadth-First Search
 - Depth-First Search
 - Dijkstra's Algorithm
+- A* Search
 
 ## Preview
 You can preview the project by clicking on this link: https://batoomer.github.io/search-visualizer/#/
@@ -11,6 +12,7 @@ You can preview the project by clicking on this link: https://batoomer.github.io
 ## Functionality
 - Select different search algorithms from the navigation bar.
 - Select different maze generators
+- Add/Remove weights 
 - Animation of the cells that are visited by the algorithm
 - Animation of the path found by the algorithm
 - Pause, resume and reset the searching process.

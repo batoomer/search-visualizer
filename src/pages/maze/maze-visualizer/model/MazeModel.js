@@ -5,6 +5,7 @@ import recursiveDivision from "./maze_generators/recurisveDivision";
 import searchBFS from "./maze_path_finders/searchBFS";
 import searchDFS from "./maze_path_finders/searchDFS";
 import searchDijkstra from "./maze_path_finders/searchDijkstra";
+import searchAStar from "./maze_path_finders/searchAStar";
 
 
 
@@ -25,6 +26,22 @@ export default class MazeModel {
         { value: 'rdfs', text: 'Randomized DFS', callback: generateMazeRDFS },
         { value: 'division', text: 'Recursive division', callback: recursiveDivision},
     ];
+
+
+    /**
+     * The available search algorithms.
+     * 
+     * @property {Object} searchAlgorithms
+     * @private
+     */
+    #searchAlgorithms = {
+        'Breadth-First Search': searchBFS,
+        'Depth-First Search': searchDFS,
+        "Dijkstra's Algorithm": searchDijkstra,
+        "A* Search": searchAStar
+    };
+
+
     
     /**
      * @property {getter} generatorAlgorithms
@@ -173,27 +190,11 @@ export default class MazeModel {
         // If the animations array are not empty return
         if (this.searchAnimation.length || this.pathAnimation.length) return;
         
-        let animations = {animation: [], path: []};
+        const animations = this.#searchAlgorithms[algorithmName](this.grid, this.startCell, this.endCell);
 
-        switch (algorithmName){
-            case 'Breadth-First Search': {
-                animations  = searchBFS(this.grid, this.startCell, this.endCell); 
-                break;
-            }
-            case 'Depth-First Search':{
-                animations  = searchDFS(this.grid, this.startCell, this.endCell); 
-                break;
-            }
-            case "Dijkstra's Algorithm":{
-                animations  = searchDijkstra(this.grid, this.startCell, this.endCell); 
-                break;
-            }
-            default:
-                break;
-        };
-        
         this.searchAnimation = animations.animation;
-        this.pathAnimation = animations.path
+        this.pathAnimation = animations.path;
+    
     };
 
     /**

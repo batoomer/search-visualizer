@@ -1,0 +1,97 @@
+{
+    "title": "A* Search",
+    "content": [
+        {
+            "type": "paragraph",
+            "text": "A* search is a type of informed search algorithm that is used to find the shortest path from a start state to a goal state. It combines the advantages of both uniform-cost search and greedy search algorithms. The algorithm uses a heuristic function to estimate the cost of reaching the goal state and to guide the search towards the goal."
+        },
+
+        {
+            "type": "paragraph",
+            "text": "The main advantage of A* search is its ability to find the optimal solution. The algorithm's heuristic function helps it to avoid exploring nodes that are unlikely to lead to the goal and to focus on nodes that are more promising. As a result, A* search is faster and more efficient than other search algorithms such as breadth-first search and depth-first search."
+        },
+
+        {
+            "type": "paragraph",
+            "text": "The main disadvantage of A* search is that it requires a good heuristic function. If the heuristic function is not accurate, then the algorithm may not find the optimal solution or may take longer to do so. In addition, A* search can be memory-intensive as it needs to store the priority queue of nodes and the information about the cost and heuristic estimate of each node."
+        },
+
+        {
+            "type": "section",
+            "title": "How A* Search works",
+            "content": [
+                {
+                    "type": "paragraph",
+                    "text": "A* search operates by maintaining a priority queue of nodes to be explored. The priority of a node is calculated as the sum of its cost and the heuristic estimate of the remaining cost to reach the goal. The algorithm starts by adding the start node to the priority queue and then repeatedly selects the node with the lowest priority and expands it. The expanded node generates its children and adds them to the priority queue. The algorithm terminates when either the goal node is found or the priority queue is empty."
+                },
+                {
+                    "type": "unordered-list",
+                    "items": [
+                        {
+                            "text": "Initialize a priority queue with the initial node and its estimated total cost (which is the sum of the distance from the starting node and the heuristic estimate of the remaining cost to reach the goal) as the priority."
+                        },
+                        {
+                            "text": "Initialize a visited set to keep track of the nodes that have already been processed to avoid processing them again."
+                        },
+                        {
+                            "text": "Repeat until the priority queue is empty"
+                        },
+                        {
+                            "text": "Remove the node with the smallest estimated total cost from the priority queue."
+                        },
+                        {
+                            "text": "Check if the node is the goal state. If it is, terminate and return the path from the start state to the goal state. If it is not, proceed to the next step."
+                        },
+                        {
+                            "text": "Check if the node is a member of the visited set. If it is, go to the next iteration. If it is not, proceed to the next step"
+                        },
+                        {
+                            "text": "Add the node to the visited set"
+                        },
+                        {
+                            "text": " Get the unvisited neighbors of the node, calculate their estimated total cost, and add them to the priority queue. Go to the next iteration"
+                        }                            
+                    ]
+                }
+            ]
+        },
+        
+        {
+            "type": "section",
+            "title": "Time and Space Complexities",
+            "content": [
+                {
+                    "type": "paragraph",
+                    "text": "The time complexity of the Dijkstra algorithm is O(b^d), where b is the branching factor and d is the depth. The branching factor refers to the average number of children that a node has in the search tree, while the depth refers to the length of the path from the root node to the target node. The time complexity of the Dijkstra algorithm increases exponentially with the branching factor and the depth, making it less efficient for graphs with a large branching factor or a deep search tree."
+                },
+                {
+                    "type": "paragraph",
+                    "text": "The space complexity of the Dijkstra algorithm is O(b^d), where b is the branching factor and d is the depth. This means that the amount of memory required to store the distances and the priority queue grows exponentially with the branching factor and the depth of the search tree."
+                }
+            ]
+        },
+        
+
+        {
+            "type": "section",
+            "title": "References",
+            "content": [
+                {
+                    "type": "paragraph",
+                    "text": "Algorithm, A* (n.d.). In Wikipedia. Retrieved February 3, 2023, from https://en.wikipedia.org/wiki/A*_search_algorithm",
+                    "links": [
+                        {
+                            "url": "https://en.wikipedia.org/wiki/A*_search_algorithm",
+                            "text": "https://en.wikipedia.org/wiki/A*_search_algorithm"
+                        }
+                    ]
+                },
+                {
+                    "type": "paragraph",
+                    "text": "Russel, S.J., and Norvig, P. (2010). Artificial Intelligence: A Modern Approach (3rd ed.). Prentice Hall."
+                }
+            ]
+        }
+
+    ]
+}
