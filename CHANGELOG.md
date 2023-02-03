@@ -7,6 +7,11 @@ All notable changes to this project will be documented in this file.
 ## [0.0.3] - 2023-12-01
 
 ### Added
+- README.md
+- maze_generators: recursiveDivision
+- route for the Dijktsra page.
+- maze_path_finder: searchDijkstra
+- articleDijkstra that contains data for the Dijkstra page
 - route for the DFS page
 - maze_path_finder: searchDFS
 - articleDFS that contains that for the DFS page
@@ -22,6 +27,7 @@ All notable changes to this project will be documented in this file.
 - Maze Page and style.
 
 ### Changed
+- Changed the article list style.
 - The general button style
 - Moved article seciton style from home.css to index.css. It is now a general style
 

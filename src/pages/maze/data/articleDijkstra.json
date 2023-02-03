@@ -1,0 +1,94 @@
+{
+    "title": "Dijkstra's Algorithm",
+    "content": [
+        {
+            "type": "paragraph",
+            "text": "Dijkstra algorithm, named after its inventor Edsger W. Dijkstra, is a graph search algorithm that helps to find the shortest path between nodes in a graph. The algorithm is widely used in artificial intelligence, especially for solving problems involving finding the shortest distance between nodes in a graph. The algorithm operates on a weighted graph, where each edge between two nodes has a weight representing its cost. In the case where the graph is unweighted, meaning that each edge has a weight of 1, the algorithm is equivalent to the breadth-first search (BFS) algorithm."
+        },
+
+        {
+            "type": "paragraph",
+            "text": "The Dijkstra algorithm is guaranteed to find the shortest path between nodes in a weighted graph, making it an ideal choice for problems that require finding the minimum cost path. The algorithm provides an optimal solution to the problem of finding the shortest path between nodes in a graph. However, it is not suitable for graphs with negative edge weights, as it does not guarantee the shortest path in this case. In addition it may require a large amount of memory to store the distances and the priority queue."
+        },
+
+        {
+            "type": "section",
+            "title": "How Dijkstra's Algorithm works",
+            "content": [
+                {
+                    "type": "paragraph",
+                    "text": "The Dijkstra algorithm operates on a weighted graph, where each edge between two nodes has a weight representing its cost. The algorithm starts from a source node and iteratively visits the closest unvisited node until it reaches the target node. At each step, the algorithm updates the distance to each of its neighbors and keeps track of the minimum distance to each node. The algorithm terminates when the target node has been visited or when there are no more unvisited nodes."
+                },
+                {
+                    "type": "paragraph",
+                    "text": "The implementation of the Dijkstra algorithm is straightforward and can be done using a priority queue. The priority queue stores the nodes that have been visited and their distances, and the algorithm dequeues the node with the minimum distance from the queue and updates its neighbors. This process is repeated until the target node is reached or there are no more nodes in the queue."
+                },
+                {
+                    "type": "unordered-list",
+                    "items": [
+                        {
+                            "text": "Initialize a priority queue with the initial node and its distance from the starting node as the priority."
+                        },
+                        {
+                            "text": "Initialize a visited set: A set is created to keep track of the nodes that have already been processed to avoid processing them again."
+                        },
+                        {
+                            "text": "Repeat until the priority queue is empty"
+                        },
+                        {
+                            "text": "Remove the node with the smallest priority from the priority queue"
+                        },
+                        {
+                            "text": "Check if the node is the solution: If it is, terminate. If it is not, proceed to the next step."
+                        },
+                        {
+                            "text": "Check if the node is a member of the visited set. If it is, go to the next iteration. If it is not, proceed to the next step"
+                        },
+                        {
+                            "text": "Add the node to the visited set"
+                        },
+                        {
+                            "text": "Get the unvisited neighbors of the node, calculate their distances from the starting node, and add them to the priority queue. Go to the next iteration."
+                        }                            
+                    ]
+                }
+            ]
+        },
+        
+        {
+            "type": "section",
+            "title": "Time and Space Complexities",
+            "content": [
+                {
+                    "type": "paragraph",
+                    "text": "The time complexity of the Dijkstra algorithm is O(b^d), where b is the branching factor and d is the depth. The branching factor refers to the average number of children that a node has in the search tree, while the depth refers to the length of the path from the root node to the target node. The time complexity of the Dijkstra algorithm increases exponentially with the branching factor and the depth, making it less efficient for graphs with a large branching factor or a deep search tree."
+                },
+                {
+                    "type": "paragraph",
+                    "text": "The space complexity of the Dijkstra algorithm is O(b^d), where b is the branching factor and d is the depth. This means that the amount of memory required to store the distances and the priority queue grows exponentially with the branching factor and the depth of the search tree."
+                }
+            ]
+        },
+        
+
+        {
+            "type": "section",
+            "title": "References",
+            "content": [
+                {
+                    "type": "paragraph",
+                    "text": "Dijkstra, E. W. (1959). A note on two problems in connexion with graphs. Numerische Mathematik, 1(1), 269-271."
+                },
+                {
+                    "type": "paragraph",
+                    "text": "Cormen, T. H., Leiserson, C. E., Rivest, R. L., & Stein, C. (2009). Introduction to algorithms. Cambridge, MA: MIT Press."
+                },
+                {
+                    "type": "paragraph",
+                    "text": "Russel, S.J., and Norvig, P. (2010). Artificial Intelligence: A Modern Approach (3rd ed.). Prentice Hall."
+                }
+            ]
+        }
+
+    ]
+}

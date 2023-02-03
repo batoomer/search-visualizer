@@ -11,6 +11,7 @@ import MazeVisualizerPage from "../pages/maze/MazePage";
 import homeArticleData from '../pages/home/home.json';
 import articleBFS from "../pages/maze/data/articleBFS.json";
 import articleDFS from "../pages/maze/data/articleDFS.json";
+import articleDijkstra from "../pages/maze/data/articleDijkstra.json";
 
 
 
@@ -37,6 +38,12 @@ const routeConfig = [
         path: '/depth-first-search',
         page: MazeVisualizerPage,
         data: [articleDFS]
+    },
+
+    {
+        path: '/dijkstra-algorithm',
+        page: MazeVisualizerPage,
+        data: [articleDijkstra]
     },
 
     {

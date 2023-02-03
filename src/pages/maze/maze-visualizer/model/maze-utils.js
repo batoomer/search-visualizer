@@ -91,6 +91,39 @@ export function removeWall(grid, row1, col1, row2, col2) {
   };
 
 
+  /**
+  * Adds a wall between two cells
+  * 
+  * @param {Array} grid - The 2D grid representing the maze.
+  * @param {number} row1 - The row index of the first cell.
+  * @param {number} col1 - The column index of the first cell.
+  * @param {number} row2 - The row index of the second cell.
+  * @param {number} col2 - The column index of the second cell.
+  */
+ export function addWall(grid, row1, col1, row2, col2) {
+   const cols = grid[0].length;
+   const rows = grid.length
+   if (row1 < 0 || row2 < 0 || col1 < 0 || col2 < 0 || row1 >= rows || row2 >= rows|| col1 >= cols  || col2 >= cols) return
+     if (row1 < row2) {
+       // The second cell is below the first cell, so add the bottom wall of the first cell and the top wall of the second cell
+       grid[row1][col1].bottom = true;
+       grid[row2][col2].top = true;
+     } else if (row1 > row2) {
+       // The second cell is above the first cell, so add the top wall of the first cell and the bottom wall of the second cell
+       grid[row1][col1].top = true;
+       grid[row2][col2].bottom = true;
+     } else if (col1 < col2) {
+       // The second cell is to the right of the first cell, so add the right wall of the first cell and the left wall of the second cell
+       grid[row1][col1].right = true;
+       grid[row2][col2].left = true;
+     } else if (col1 > col2) {
+       // The second cell is to the left of the first cell, so add the left wall of the first cell and the right wall of the second cell
+       grid[row1][col1].left = true;
+       grid[row2][col2].right = true;
+     }
+   };
+
+
 /**
  * Get the valid (unblocked) neighbors of a given cell
  * 

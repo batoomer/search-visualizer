@@ -17,10 +17,10 @@ You can preview the project by clicking on this link: https://batoomer.github.io
 - Article for each search algorithm
 
 ## Tech stack
-HTML
-CSS
-JavaScript
-Webpack
+- HTML
+- CSS
+- JavaScript
+- Webpack
 
 ## How to run the project
 1. Clone the project.

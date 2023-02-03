@@ -1,8 +1,10 @@
 import generateMazeRDFS from "./maze_generators/randomizedDFS";
 import generateEmptyMaze from "./maze_generators/emptyMaze";
 import generateRandomMaze from "./maze_generators/randomMaze";
+import recursiveDivision from "./maze_generators/recurisveDivision";
 import searchBFS from "./maze_path_finders/searchBFS";
 import searchDFS from "./maze_path_finders/searchDFS";
+import searchDijkstra from "./maze_path_finders/searchDijkstra";
 
 
 
@@ -21,6 +23,7 @@ export default class MazeModel {
         { value: 'empty', text: 'Empty Maze', callback: generateEmptyMaze},
         { value: 'random', text: 'Random Maze', callback: generateRandomMaze},
         { value: 'rdfs', text: 'Randomized DFS', callback: generateMazeRDFS },
+        { value: 'division', text: 'Recursive division', callback: recursiveDivision},
     ];
     
     /**
@@ -153,6 +156,10 @@ export default class MazeModel {
             }
             case 'Depth-First Search':{
                 animations  = searchDFS(this.grid, this.startCell, this.endCell); 
+                break;
+            }
+            case "Dijkstra's Algorithm":{
+                animations  = searchDijkstra(this.grid, this.startCell, this.endCell); 
                 break;
             }
             default:

@@ -38,7 +38,7 @@ export default class MazeVisualizerPage extends Page{
     }
 
     /**
-     * Creates the visualizer section.
+     * Creates the visualizer section
      * 
      * @returns {HTMLElement} The visualizer element
      */
