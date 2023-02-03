@@ -1,4 +1,5 @@
 import { getValidNeighbors } from "../maze-utils";
+import { construct_path} from "./path-utils";
 
 /**
  * Perform a Breadth First Search (BFS) on the grid to find a path from start to end
@@ -54,15 +55,6 @@ export default function searchBFS(grid, start, end){
     };
 
     // Construct the path
-    const path = [];
-    let current = end;
-    while (current !== start) {
-        if (!current) break;
-        path.unshift(current);
-        current = parent[`${current.row},${current.col}`];
-    };
-    path.unshift(start);
-    
-    
+    const path = construct_path(end, start, parent);
     return {animation: animation, path: path};
 };

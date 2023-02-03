@@ -1,4 +1,5 @@
 import { getValidNeighbors } from "../maze-utils"
+import { PriorityQueue , construct_path} from "./path-utils";
 
 /**
  * Perform A* search on the grid to find the shortest path from start to end.
@@ -52,15 +53,8 @@ export default function searchAStar(grid, startCell, endCell){
         };
     };
 
-    // Construct the path
-    const path = [];
-    let current = endCell;
-    while (current !== startCell) {
-        if (!current) break;
-        path.unshift(current);
-        current = parents[`${current.row},${current.col}`];
-    }
-    path.unshift(startCell);
+     // Construct the path
+     const path = construct_path(endCell, startCell, parents);
     
     return { animation: animations, path: path };
 };
@@ -80,26 +74,3 @@ function getHeuristic(cell, endCell) {
     return Math.sqrt(((cell.row - endCell.row)**2) + ((cell.col - endCell.col)**2));
 };
 
-/** A simple implementation of a priority queue */
-class PriorityQueue{
-    constructor() {
-        this.heap = [];
-    }
-
-    add(value, priority) {
-        this.heap.push([value, priority]);
-        this.sort();
-    }
-    
-    remove() {
-        return this.heap.shift();
-    }
-    
-    sort() {
-        this.heap.sort((a, b) => a[1] - b[1]);
-    }
-    
-    isEmpty() {
-        return this.heap.length === 0;
-    }
-}

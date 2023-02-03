@@ -2,11 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
-## [Unreleased]
-
-## [0.0.3] - 2023-12-01
+## [0.1.0] - 2023-02-3
 
 ### Added
+- published the built on github pages
+
+### Fixed
+- the dates on the CHANGELOD.md
+
+## [0.0.3] - 2023-02-01
+
+### Added
+- path-utils.js where common functions for the search algorithms are implemented
 - route for the A* Search page.
 - maze_path_finder: searchAStar
 - articleAstar that contains data for the A* Search page
@@ -34,6 +41,7 @@ All notable changes to this project will be documented in this file.
 - Maze Page and style.
 
 ### Changed
+- Refractored the search algorithms. They now call the function construct_path to construct the path they find.
 - MazeModel, each cell now has a weight associated with it
 - Changed the article list style.
 - The general button style
