@@ -123,8 +123,10 @@
 }
 
 .maze-cell > div > img {
-    width: 70%;
+    max-width: 70%;
 }
+
+/* Utility Classes */
 
 .maze-cell.border-left {
     border-left-width: var(--cell-border-size);
@@ -140,4 +142,27 @@
 
 .maze-cell.border-bottom {
     border-bottom-width: var(--cell-border-size);
+}
+
+.maze-weight-2 > img{
+    filter: hue-rotate(30deg);
+    width: 50%;
+}
+
+.maze-weight-3 >img {
+    filter: hue-rotate(60deg);
+    transform: rotate(90deg);
+    width: 55%;
+}
+
+.maze-weight-4 > img {
+    filter: hue-rotate(120deg);
+    transform: rotate(180deg);
+    width: 60%;
+}
+
+.maze-weight-5 > img{
+    filter: hue-rotate(180deg);
+    transform: rotate(270deg);
+    width: 65%;
 }

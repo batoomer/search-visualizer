@@ -6,6 +6,7 @@ import endIcon from "../../../images/icons/target-icon.png";
 import resetIcon from "../../../images/icons/reset-icon.png";
 import playIcon from "../../../images/icons/play-icon.png";
 import pauseIcon from "../../../images/icons/pause-icon.png";
+import bugIcon from "../../../images/icons/bug-icon.png";
 
 import './maze-visualizer.css';
 
@@ -113,7 +114,7 @@ export default class MazeVisualizer extends BaseComponent{
             this.#createStartStopBtn(), 
             this.#createAlgorithmSelect(),
             this.#createAnimationSpeedRange(),
-            
+            this.#createWeightsCheckbox()
         );
         return containerEl;
     };
@@ -181,6 +182,7 @@ export default class MazeVisualizer extends BaseComponent{
             this.timeoutHandler.removeAllTimeouts();
             this.mazeModel.resetMaze();
             this.componentElement.querySelector('.maze-visualizer__select-algorithm').value = "";
+            this.componentElement.querySelector('#maze-visualizer__maze-weights').checked = false;
             this.#handleSettingsAvailability();
             this.componentElement.querySelector('.maze-grid').replaceWith(this.#createMazeGrid());
         });
@@ -269,6 +271,68 @@ export default class MazeVisualizer extends BaseComponent{
         return settingWrapper
     };
 
+    /**
+     * Creates a checkbox to toggle weights
+     * 
+     * @returns {HTMLInputElement}
+     */
+    #createWeightsCheckbox(){
+        const settingWrapper = document.createElement('div');
+        settingWrapper.classList.add('maze-visualizer__setting-wrapper');
+
+        const checkboxLabel = document.createElement('label');
+        checkboxLabel.htmlFor = 'maze-visualizer__maze-weights';
+        checkboxLabel.innerHTML = `Weights`;
+        
+        const weightCheckbox = document.createElement('input');
+        weightCheckbox.disabled = true;
+        weightCheckbox.id = 'maze-visualizer__maze-weights';
+        weightCheckbox.type = 'checkbox';
+
+        // Event Listener for the checkbox
+        this.eventHandler.addEventListener(weightCheckbox, 'click', () => {
+            if (weightCheckbox.checked){
+                    this.mazeModel.addRandomWeights();
+                    this.#handleMazeWeights();      
+                }else {
+                    this.mazeModel.removeWeights();
+                    this.#handleMazeWeights();      
+                }
+            });
+
+        settingWrapper.append(checkboxLabel, weightCheckbox);
+
+        return settingWrapper;
+    }
+
+    /**
+     * Adds or removes cell weights
+     * 
+     * @property {function} handleMazeWeights
+     * @private
+     */
+    #handleMazeWeights() {
+        // Get the number of rows and columns
+        const rowSize = this.mazeModel.grid.length;
+        const colSize = this.mazeModel.grid[0].length;
+        // Iterate over the rows and columns 
+        for (let i = 0; i < rowSize; i++) {
+            for (let j = 0; j < colSize; j++) {
+                
+                // if the cell is the start cell or end cell skip the iteration
+                if ((this.mazeModel.startCell.row === i) && (this.mazeModel.startCell.col === j)) continue;
+                if ((this.mazeModel.endCell.row === i) && (this.mazeModel.endCell.col === j)) continue;
+                
+                // Get the cell data and the cell element
+                const cellData = this.mazeModel.grid[i][j];
+                let cellEl = this.componentElement.querySelector(`[data-row="${i}"][data-col="${j}"]`);
+                
+                // handle the weight display
+                cellEl.innerHTML = (cellData.weight !== 1) ? `<div class="maze-weight-${cellData.weight}"><img src="${bugIcon}" alt="start"/></div>` : cellEl.innerHTML= '';
+                
+            };
+        };
+    }
 
     /**
      * Handles the Settings Availability. Enables or Disables them.
@@ -282,17 +346,20 @@ export default class MazeVisualizer extends BaseComponent{
             // Disable settings if animation is running
             this.componentElement.querySelector('.maze-visualizer__reset-btn').disabled = true;
             selectAlgorithm.disabled = true;
+            this.componentElement.querySelector('#maze-visualizer__maze-weights').disabled = true;
         }else{
             // Enable settings if animation is running
             this.componentElement.querySelector('.maze-visualizer__reset-btn').disabled = false;
             selectAlgorithm.disabled = false;
+            if (selectAlgorithm.value === ""){
+                this.componentElement.querySelector('.maze-visualizer__toggle-btn').disabled = true;
+                this.componentElement.querySelector('#maze-visualizer__maze-weights').disabled = true;
+            }else{
+                this.componentElement.querySelector('.maze-visualizer__toggle-btn').disabled = false;
+                this.componentElement.querySelector('#maze-visualizer__maze-weights').disabled = false;
+            }
+            this.componentElement.querySelector('#maze-visualizer__maze-weights').disabled = false;
         };
-
-        if (selectAlgorithm.value === ""){
-            this.componentElement.querySelector('.maze-visualizer__toggle-btn').disabled = true;
-        }else{
-            this.componentElement.querySelector('.maze-visualizer__toggle-btn').disabled = false;
-        }
     };
 
 

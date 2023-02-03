@@ -7,6 +7,9 @@ All notable changes to this project will be documented in this file.
 ## [0.0.3] - 2023-12-01
 
 ### Added
+- MazeVisualizer: Checkbox to toggle weights, method to display weights
+- MazeModel: methods for adding and removing weights
+- Support for weights
 - README.md
 - maze_generators: recursiveDivision
 - route for the Dijktsra page.
@@ -27,6 +30,7 @@ All notable changes to this project will be documented in this file.
 - Maze Page and style.
 
 ### Changed
+- MazeModel, each cell now has a weight associated with it
 - Changed the article list style.
 - The general button style
 - Moved article seciton style from home.css to index.css. It is now a general style

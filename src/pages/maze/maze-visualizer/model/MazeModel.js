@@ -114,10 +114,36 @@ export default class MazeModel {
                     bottom: true,
                     left: true,
                     visited: false,
+                    weight: 1
                 };
             };
         };
         return grid;
+    };
+
+    addRandomWeights(){
+        for (let i =0; i<this.#height; i++){
+            for (let j=0; j<this.#width; j++){
+                // if the cell is the start cell or end cell skip the iteration
+                if ((this.startCell.row === i) && (this.startCell.col === j)) continue;
+                if ((this.endCell.row === i) && (this.endCell.col === j)) continue;
+                
+                // Probability to add a weight to the cell
+                let proba = Math.random() < 0.05;
+                if (!proba) continue;
+                
+                // Add random weight in the range [2,5]
+                this.grid[i][j].weight = Math.round(3*Math.random() + 2);
+            };
+        };
+    };
+
+   removeWeights(){
+        for (let i =0; i<this.#height; i++){
+            for (let j=0; j<this.#width; j++){
+                this.grid[i][j].weight = 1;
+            };
+        };
     };
 
 
@@ -133,7 +159,7 @@ export default class MazeModel {
 
         if (!selectedAlgorithm) {
             throw new Error(`Unknown algorithm: ${algorithm}`);
-        }
+        };
 
         return selectedAlgorithm.callback(this.grid, this.startCell);
     };
